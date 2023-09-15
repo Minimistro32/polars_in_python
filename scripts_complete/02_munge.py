@@ -1,9 +1,8 @@
 # %%
-# %%
 import polars as pl
 dat_long = pl.read_parquet("../data/long.parquet")
 
-
+# %%
 # no we need to fix the year column and give it a better name.
 # we could have fixed the name as an argument in `.melt()` as well.
 dat_long = dat_long.with_columns(pl.col("variable").cast(pl.Int64).alias("variable"))\
